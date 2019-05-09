@@ -31,7 +31,7 @@ public class VariablesReplaceBuilderTest {
     	file = new File(getClass().getResource(".").getPath() + "tmp.txt");
     	configs = new ArrayList<>();
     	List<VariablesReplaceItemConfig> cfgs = new ArrayList<>();
-    	cfgs.add(new VariablesReplaceItemConfig("#{NAME}#", "John"));
+    	cfgs.add(new VariablesReplaceItemConfig("NAME", "John"));
     	FileUtils.write(file, content, Charset.forName(fileEncoding));
     	configs.add(new VariablesReplaceConfig(file.getAbsolutePath(), fileEncoding, variablesPrefix, variablesSuffix, emptyValue, variablesSource, cfgs));
     }
@@ -48,7 +48,7 @@ public class VariablesReplaceBuilderTest {
         project.getBuildersList().add(builder);
 
         FreeStyleBuild build = jenkins.buildAndAssertSuccess(project);
-        jenkins.assertLogContains("replace times: 1, #{NAME}# => [Hello my name is John]", build);
+        jenkins.assertLogContains("replace times: " + String.valueOf(1) + ",  " + "#{NAME}#" + " => [" + "John" + "]", build);
         Assert.assertEquals(FileUtils.readFileToString(file, Charset.forName(fileEncoding)), "Hello my name is John");
     }
 

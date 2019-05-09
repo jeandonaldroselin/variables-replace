@@ -31,7 +31,7 @@
 		</select>
 	</f:entry>
 	<f:entry title="${%VariablesSource}" field="variablesSource">
-		<select name="variablesSource" value="buildParameters">
+		<select name="variablesSource">
 			<option value="buildParameters">Build Parameters</option>
 			<option value="custom">Custom</option>
 		</select>
