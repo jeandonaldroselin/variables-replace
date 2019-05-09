@@ -22,7 +22,7 @@ public class VariablesReplaceBuilderTest {
     private String variablesPrefix = "#{";
     private String variablesSuffix = "}#";
     private String emptyValue = "}#";
-    private String variablesSource = "custom";
+    private boolean customVariables = true;
 	private File file;
 	private List<VariablesReplaceConfig> configs;
 	
@@ -33,7 +33,7 @@ public class VariablesReplaceBuilderTest {
     	List<VariablesReplaceItemConfig> cfgs = new ArrayList<>();
     	cfgs.add(new VariablesReplaceItemConfig("NAME", "John"));
     	FileUtils.write(file, content, Charset.forName(fileEncoding));
-    	configs.add(new VariablesReplaceConfig(file.getAbsolutePath(), fileEncoding, variablesPrefix, variablesSuffix, emptyValue, variablesSource, cfgs));
+    	configs.add(new VariablesReplaceConfig(file.getAbsolutePath(), fileEncoding, variablesPrefix, variablesSuffix, emptyValue, customVariables, cfgs));
     }
     
     @After

@@ -21,17 +21,17 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
     private String variablesPrefix = "#{";
     private String variablesSuffix = "}#";
     private String emptyValue = "";
-    private String variablesSource = "custom";
+    private boolean customVariables = true;
     private List<VariablesReplaceItemConfig> configs;
 
     @DataBoundConstructor
-    public VariablesReplaceConfig(String filePath, String fileEncoding, String variablesPrefix, String variablesSuffix, String emptyValue, String variablesSource, List<VariablesReplaceItemConfig> configs) {
+    public VariablesReplaceConfig(String filePath, String fileEncoding, String variablesPrefix, String variablesSuffix, String emptyValue, boolean customVariables, List<VariablesReplaceItemConfig> configs) {
         this.filePath = StringUtils.strip(filePath);
         this.fileEncoding = fileEncoding;
         this.variablesPrefix = variablesPrefix;
         this.variablesSuffix = variablesSuffix;
         this.emptyValue = emptyValue;
-        this.variablesSource = variablesSource;
+        this.customVariables = customVariables;
         this.configs = configs;
     }
 
@@ -55,8 +55,8 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
         return emptyValue;
     }
 
-    public String getVariablesSource() {
-        return variablesSource;
+    public boolean getCustomVariables() {
+        return customVariables;
     }
 
     public List<VariablesReplaceItemConfig> getConfigs() {
@@ -97,7 +97,7 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
             return FormValidation.ok();
         }
 
-        public FormValidation doCheckVariablesSource(@QueryParameter StaplerRequest req, @QueryParameter StaplerResponse rsp, @QueryParameter final String value) {
+        public FormValidation doCheckCustomVariables(@QueryParameter StaplerRequest req, @QueryParameter StaplerResponse rsp, @QueryParameter final String value) {
             return FormValidation.ok();
         }
 
