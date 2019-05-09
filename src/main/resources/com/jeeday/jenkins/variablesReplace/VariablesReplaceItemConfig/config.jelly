@@ -1,0 +1,28 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
+	xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
+	xmlns:f="/lib/form">
+	<style type="text/css">
+		.item-name {
+			display: inline-block;
+			width: 90px;
+			text-align: right;
+		}
+		.item-column {
+			width: 49%;
+			float: left;
+		}
+		[name="_.name"] { width: 40px; }
+		[name="_.value"] { width: calc(100% - 47px); }
+	</style>
+	<f:entry field="forVariableHelp">
+		<div class="item-column">
+			<span class="item-name">${%Name}</span>
+			<f:textbox field="name"/>
+		</div>
+		<div class="item-column">
+			<span class="item-name">${%Value}</span>
+			<f:textbox field="value"/>
+		</div>
+	</f:entry>
+</j:jelly>
