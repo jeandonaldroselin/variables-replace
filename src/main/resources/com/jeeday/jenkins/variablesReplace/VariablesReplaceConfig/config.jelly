@@ -31,7 +31,7 @@
 		</select>
 	</f:entry>
 	<f:block>
-		<f:optionalBlock field="customVariables" title="${%CustomVariables}" checked="${instance[CustomVariables]!=null}">
+		<f:optionalBlock field="customVariables" title="${%CustomVariables}" checked="${instance[customVariables]!=null}">
 			<f:entry title="${%YourValues}" field="configs">
 				<f:repeatable field="configs" noAddButton="true"
 							  minimum="1">
