@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='io.jenkins.plugins' artifactId='variablesReplace' version='1.0-SNAPSHOT'><l:dependency name='Variables Replace' groupId='io.jenkins.plugins' artifactId='variablesReplace' version='1.0-SNAPSHOT' url=''><l:description>This plugin allows to replace variables in files content. The values of the variables to replace can be set in a file OR from parameterized plugin setting</l:description><l:license name='MIT License' url='https://opensource.org/licenses/MIT'/></l:dependency></l:dependencies>
