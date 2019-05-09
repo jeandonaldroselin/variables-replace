@@ -30,24 +30,36 @@
 			<option value="UTF-16">UTF-16</option>
 		</select>
 	</f:entry>
-	<f:entry title="${%CustomVariables}" field="configs">
-		<f:repeatable field="configs" noAddButton="true"
-					  minimum="1">
-			<table width="100%">
-				<st:include
-						class="com.jeeday.jenkins.variablesReplace.VariablesReplaceItemConfig"
-						page="config.jelly" />
-
-				<f:entry>
-					<div align="right">
-						<input type="button" value="${%Add}"
-							   class="repeatable-add show-if-last" />
-						<input type="button" value="${%Delete}"
-							   class="repeatable-delete show-if-not-only"
-							   style="margin-left: 1em;" />
-					</div>
-				</f:entry>
-			</table>
-		</f:repeatable>
+	<f:entry title="${%VariablesSource}" field="variablesSource">
+		<select name="variablesSource" value="buildParameters">
+			<option value="buildParameters">Build Parameters</option>
+			<option value="custom">Custom</option>
+		</select>
 	</f:entry>
+	<f:block>
+		<j:choose>
+			<j:when test="${instance.variablesSource == 'custom'}">
+				<f:entry title="${%CustomVariables}" field="configs">
+					<f:repeatable field="configs" noAddButton="true"
+								  minimum="1">
+						<table width="100%">
+							<st:include
+									class="com.jeeday.jenkins.variablesReplace.VariablesReplaceItemConfig"
+									page="config.jelly" />
+
+							<f:entry>
+								<div align="right">
+									<input type="button" value="${%Add}"
+										   class="repeatable-add show-if-last" />
+									<input type="button" value="${%Delete}"
+										   class="repeatable-delete show-if-not-only"
+										   style="margin-left: 1em;" />
+								</div>
+							</f:entry>
+						</table>
+					</f:repeatable>
+				</f:entry>
+			</j:when>
+		</j:choose>
+	</f:block>
 </j:jelly>

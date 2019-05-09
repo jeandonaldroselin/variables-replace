@@ -21,15 +21,17 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
     private String variablesPrefix = "#{";
     private String variablesSuffix = "}#";
     private String emptyValue = "";
+    private String variablesSource = "custom";
     private List<VariablesReplaceItemConfig> configs;
 
     @DataBoundConstructor
-    public VariablesReplaceConfig(String filePath, String fileEncoding, String variablesPrefix, String variablesSuffix, String emptyValue, List<VariablesReplaceItemConfig> configs) {
+    public VariablesReplaceConfig(String filePath, String fileEncoding, String variablesPrefix, String variablesSuffix, String emptyValue, String variablesSource, List<VariablesReplaceItemConfig> configs) {
         this.filePath = StringUtils.strip(filePath);
         this.fileEncoding = fileEncoding;
         this.variablesPrefix = variablesPrefix;
         this.variablesSuffix = variablesSuffix;
         this.emptyValue = emptyValue;
+        this.variablesSource = variablesSource;
         this.configs = configs;
     }
 
@@ -51,6 +53,10 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
 
     public String getEmptyValue() {
         return emptyValue;
+    }
+
+    public String getVariablesSource() {
+        return variablesSource;
     }
 
     public List<VariablesReplaceItemConfig> getConfigs() {
@@ -88,6 +94,10 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
         }
 
         public FormValidation doCheckEmptyValue(@QueryParameter StaplerRequest req, @QueryParameter StaplerResponse rsp, @QueryParameter final String value) {
+            return FormValidation.ok();
+        }
+
+        public FormValidation doCheckVariablesSource(@QueryParameter StaplerRequest req, @QueryParameter StaplerResponse rsp, @QueryParameter final String value) {
             return FormValidation.ok();
         }
 
