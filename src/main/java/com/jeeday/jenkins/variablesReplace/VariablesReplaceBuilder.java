@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
@@ -72,9 +73,10 @@ public class VariablesReplaceBuilder extends Builder implements SimpleBuildStep 
             if (!assertEnvVarsExpanded(value, run, listener)) {
                 return;
             }
-            int numberOfOccurences = content.split(variableName).length - 1;
-            content = content.replace(variableName, value);
-            log.println("replace times: " + numberOfOccurences + ",  " + variableName + " => [" + value + "]");
+            Matcher matcher = Pattern.compile(variableName, Pattern.LITERAL).matcher(content);
+            int occurrences = StringUtils.countMatches(content, variableName);
+            content = matcher.replaceAll(value);
+            log.println("replace times: " + occurrences + ",  " + variableName + " => [" + value + "]");
         }
         filePath.write(content, config.getFileEncoding());
     }

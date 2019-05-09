@@ -5,14 +5,14 @@
 	<style type="text/css">
 		.item-name {
 			display: inline-block;
-			width: 90px;
+			width: 40px;
 			text-align: right;
 		}
 		.item-column {
 			width: 49%;
 			float: left;
 		}
-		[name="_.name"] { width: 40px; }
+		[name="_.name"] { width: calc(100% - 47px); }
 		[name="_.value"] { width: calc(100% - 47px); }
 	</style>
 	<f:entry field="forVariableHelp">
