@@ -7,9 +7,9 @@
         <version>3.4</version>
         <relativePath />
     </parent>
-    <groupId>io.jenkins.plugins</groupId>
+    <groupId>com.jeeday.jenkins</groupId>
     <artifactId>variablesReplace</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>hpi</packaging>
     <properties>
         <jenkins.version>2.7.3</jenkins.version>
@@ -23,14 +23,12 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-    <!-- Assuming you want to host on @jenkinsci:
-    <url>https://wiki.jenkins.io/display/JENKINS/TODO+Plugin</url>
-    <scm>org.jenkins-ci.plugins
-        <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-        <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+    <url>https://wiki.jenkins.io/display/JENKINS/VARIABLES+REPLACE+Plugin</url>
+    <scm>
+        <connection>scm:git:git://github.com/JeeDay/jenkins-variables-replace-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:JeeDay/jenkins-variables-replace-plugin.git</developerConnection>
+        <url>https://github.com/JeeDay/jenkins-variables-replace-plugin</url>
     </scm>
-    -->
     <dependencies>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
@@ -84,7 +82,7 @@
         <developer>
             <id>jeeday</id>
             <name>JeeDay</name>
-            <email>siapep.entreprise@gmail.com</email>
+            <email>siapep.entreprise+jenkins-ci@gmail.com</email>
         </developer>
     </developers>
     <repositories>

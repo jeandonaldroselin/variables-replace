@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import hudson.model.*;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.jenkinsci.Symbol;
@@ -18,10 +20,6 @@ import hudson.EnvVars;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
-import hudson.model.AbstractProject;
-import hudson.model.Result;
-import hudson.model.Run;
-import hudson.model.TaskListener;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.Builder;
 import jenkins.tasks.SimpleBuildStep;
@@ -29,6 +27,7 @@ import jenkins.tasks.SimpleBuildStep;
 public class VariablesReplaceBuilder extends Builder implements SimpleBuildStep {
 
     private List<VariablesReplaceConfig> configs;
+
 
     @DataBoundConstructor
     public VariablesReplaceBuilder(List<VariablesReplaceConfig> configs) {
