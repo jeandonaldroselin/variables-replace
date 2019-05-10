@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    TODO
+    This plugin allows to replace variables in files content. The values of the variables to replace can be set in a file OR from parameterized plugin setting
 </div>

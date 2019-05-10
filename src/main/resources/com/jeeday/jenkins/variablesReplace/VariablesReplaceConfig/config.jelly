@@ -1,0 +1,53 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
+	xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
+	xmlns:f="/lib/form">
+	<style type="text/css">
+	</style>
+	<f:entry title="${%TargetFiles}" field="filePath">
+		<f:textarea name="filePath"/>
+	</f:entry>
+	<f:entry title="${%Delimiters}" field="delimiters">
+		<div style="width: 30%;float: left;margin-right: 1%;">
+			<label>${%VariablesPrefix}</label> :
+			<f:textbox field="variablesPrefix" name="variablesPrefix"/>
+		</div>
+		<div style="width: 30%;float: left;margin-right: 1%;">
+			<label>${%VariablesSuffix}</label> :
+			<f:textbox field="variablesSuffix" name="variablesSuffix"/>
+		</div>
+		<div style="width: 30%;float: left;">
+			<label>${%EmptyValue}</label> :
+			<f:textbox field="emptyValue" name="emptyValue"/>
+		</div>
+	</f:entry>
+	<f:entry title="${%FileEncoding}" field="fileEncoding">
+		<select name="fileEncoding">
+			<option value="UTF-8">UTF-8</option>
+			<option value="GBK">GBK</option>
+			<option value="ASCII">ASCII</option>
+			<option value="ISO-8859-1">ISO-8859-1</option>
+			<option value="UTF-16">UTF-16</option>
+		</select>
+	</f:entry>
+	<f:entry title="${%CustomVariables}" field="configs">
+		<f:repeatable field="configs" noAddButton="true"
+					  minimum="1">
+			<table width="100%">
+				<st:include
+						class="com.jeeday.jenkins.variablesReplace.VariablesReplaceItemConfig"
+						page="config.jelly" />
+
+				<f:entry>
+					<div align="right">
+						<input type="button" value="${%Add}"
+							   class="repeatable-add show-if-last" />
+						<input type="button" value="${%Delete}"
+							   class="repeatable-delete show-if-not-only"
+							   style="margin-left: 1em;" />
+					</div>
+				</f:entry>
+			</table>
+		</f:repeatable>
+	</f:entry>
+</j:jelly>
