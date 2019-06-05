@@ -25,9 +25,9 @@
     </licenses>
     <url>https://wiki.jenkins.io/display/JENKINS/VARIABLES+REPLACE+Plugin</url>
     <scm>
-        <connection>scm:git:git://github.com/JeeDay/jenkins-variables-replace-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:JeeDay/jenkins-variables-replace-plugin.git</developerConnection>
-        <url>https://github.com/JeeDay/jenkins-variables-replace-plugin</url>
+        <connection>scm:git:git://github.com/JeeDay/variables-replace.git</connection>
+        <developerConnection>scm:git:git@github.com:JeeDay/variables-replace.git</developerConnection>
+        <url>https://github.com/JeeDay/variables-replace</url>
     </scm>
     <dependencies>
         <dependency>
