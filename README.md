@@ -1,5 +1,5 @@
-# jenkins-variables-replace
-This plugin allow to replace easily variables in files content.
+# variables-replace
+This Jenkins plugin allow to replace easily variables in files content.
 
 Example of Usage : <br/><br/>
 
