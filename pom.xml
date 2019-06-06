@@ -15,7 +15,7 @@
         <jenkins.version>2.7.3</jenkins.version>
         <java.level>7</java.level>
     </properties>
-    <name>Variables Replace Plugin</name>
+    <name>Variables Replace</name>
     <description>This plugin allows to replace variables in files content. The values of the variables to replace can be set in a file OR from parameterized plugin setting</description>
     <licenses>
         <license>
@@ -23,7 +23,7 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-    <url>https://wiki.jenkins.io/display/JENKINS/VARIABLES+REPLACE+Plugin</url>
+    <url>https://wiki.jenkins.io/display/JENKINS/VARIABLES+REPLACE</url>
     <scm>
         <connection>scm:git:git://github.com/JeeDay/variables-replace.git</connection>
         <developerConnection>scm:git:git@github.com:JeeDay/variables-replace.git</developerConnection>
