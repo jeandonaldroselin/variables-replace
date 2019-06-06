@@ -8,7 +8,7 @@
         <relativePath />
     </parent>
     <groupId>com.jeeday.jenkins</groupId>
-    <artifactId>variablesReplace</artifactId>
+    <artifactId>variables-replace</artifactId>
     <version>1.0.0</version>
     <packaging>hpi</packaging>
     <properties>
