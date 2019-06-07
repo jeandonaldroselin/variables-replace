@@ -8,7 +8,7 @@
         <relativePath />
     </parent>
     <groupId>com.jeeday.jenkins</groupId>
-    <artifactId>variablesReplace</artifactId>
+    <artifactId>variables-replace</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <properties>
@@ -23,11 +23,11 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
-    <url>https://wiki.jenkins.io/display/JENKINS/VARIABLES+REPLACE+Plugin</url>
+    <url>https://wiki.jenkins.io/display/JENKINS/VARIABLES+REPLACE</url>
     <scm>
-        <connection>scm:git:git://github.com/JeeDay/variables-replace.git</connection>
-        <developerConnection>scm:git:git@github.com:JeeDay/variables-replace.git</developerConnection>
-        <url>git@github.com:JeeDay/variables-replace.git</url>
+        <connection>scm:git:git://github.com/jenkinsci/variables-replace-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:jenkinsci/variables-replace-plugin.git</developerConnection>
+        <url>git@github.com:jenkinsci/variables-replace-plugin.git</url>
     </scm>
     <dependencies>
         <dependency>
