@@ -27,7 +27,7 @@
     <scm>
         <connection>scm:git:git://github.com/JeeDay/variables-replace.git</connection>
         <developerConnection>scm:git:git@github.com:JeeDay/variables-replace.git</developerConnection>
-        <url>https://github.com/JeeDay/variables-replace</url>
+        <url>git@github.com:JeeDay/variables-replace.git</url>
     </scm>
     <dependencies>
         <dependency>
