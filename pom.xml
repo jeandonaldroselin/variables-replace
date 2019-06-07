@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.jeeday.jenkins</groupId>
     <artifactId>variables-replace</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>hpi</packaging>
     <properties>
         <jenkins.version>2.7.3</jenkins.version>
@@ -28,7 +28,8 @@
         <connection>scm:git:git://github.com/jenkinsci/variables-replace-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/variables-replace-plugin.git</developerConnection>
         <url>git@github.com:jenkinsci/variables-replace-plugin.git</url>
-    </scm>
+      <tag>variables-replace-1.0.0</tag>
+  </scm>
     <dependencies>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
