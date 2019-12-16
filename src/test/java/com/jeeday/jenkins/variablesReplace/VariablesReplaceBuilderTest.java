@@ -30,7 +30,7 @@ public class VariablesReplaceBuilderTest {
     	file = new File(getClass().getResource(".").getPath() + "tmp.txt");
     	configs = new ArrayList<>();
     	List<VariablesReplaceItemConfig> cfgs = new ArrayList<>();
-    	cfgs.add(new VariablesReplaceItemConfig("NAME", "John"));
+    	cfgs.add(new VariablesReplaceItemConfig("NAME", "John",false));
     	FileUtils.write(file, content, Charset.forName(fileEncoding));
     	configs.add(new VariablesReplaceConfig(file.getAbsolutePath(), fileEncoding, variablesPrefix, variablesSuffix, emptyValue, cfgs));
     }
