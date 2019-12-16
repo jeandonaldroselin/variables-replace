@@ -21,17 +21,17 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
     private String variablesPrefix = "#{";
     private String variablesSuffix = "}#";
     private String emptyValue = "";
-    private boolean logOnReplace = true;
+    private boolean hideVariableOnReplace = false;
     private List<VariablesReplaceItemConfig> configs;
 
     @DataBoundConstructor
-    public VariablesReplaceConfig(String filePath, String fileEncoding, String variablesPrefix, String variablesSuffix, String emptyValue, boolean logOnReplace, List<VariablesReplaceItemConfig> configs) {
+    public VariablesReplaceConfig(String filePath, String fileEncoding, String variablesPrefix, String variablesSuffix, String emptyValue, boolean hideVariableOnReplace, List<VariablesReplaceItemConfig> configs) {
         this.filePath = StringUtils.strip(filePath);
         this.fileEncoding = fileEncoding;
         this.variablesPrefix = variablesPrefix;
         this.variablesSuffix = variablesSuffix;
         this.emptyValue = emptyValue;
-        this.logOnReplace = logOnReplace;
+        this.hideVariableOnReplace = hideVariableOnReplace;
         this.configs = configs;
     }
 
@@ -54,8 +54,8 @@ public class VariablesReplaceConfig extends AbstractDescribableImpl<VariablesRep
     public String getEmptyValue() {
         return emptyValue;
     }
-    public boolean getLogOnReplace() {
-        return logOnReplace;
+    public boolean getHideVariableOnReplace() {
+        return hideVariableOnReplace;
     }
     public List<VariablesReplaceItemConfig> getConfigs() {
         return configs;
