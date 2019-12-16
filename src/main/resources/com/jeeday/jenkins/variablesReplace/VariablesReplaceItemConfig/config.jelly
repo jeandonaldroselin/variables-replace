@@ -14,15 +14,20 @@
 		}
 		[name="_.name"] { width: calc(100% - 47px); }
 		[name="_.value"] { width: calc(100% - 47px); }
+		[name="_.hideVariableOnReplace"] { width: calc(100% - 47px); }
 	</style>
 	<f:entry field="forVariableHelp">
 		<div class="item-column">
 			<span class="item-name">${%Name}</span>
 			<f:textbox field="name"/>
-		</div>
+		</div>getHideVariableOnReplace
 		<div class="item-column">
 			<span class="item-name">${%Value}</span>
 			<f:textbox field="value"/>
+		</div>
+		<div class="item-column">
+			<span class="item-name">${%HideVariableOnReplace}</span>
+			<f:textbox field="hideVariableOnReplace"/>
 		</div>
 	</f:entry>
 </j:jelly>
