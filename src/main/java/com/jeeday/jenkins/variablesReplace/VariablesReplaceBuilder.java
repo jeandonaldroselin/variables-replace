@@ -75,7 +75,11 @@ public class VariablesReplaceBuilder extends Builder implements SimpleBuildStep 
             Matcher matcher = Pattern.compile(variableName, Pattern.LITERAL).matcher(content);
             int occurrences = StringUtils.countMatches(content, variableName);
             content = matcher.replaceAll(value);
-            log.println("replace times: " + occurrences + ",  " + variableName + " => [" + value + "]");
+            if (config.getHideVariableOnReplace){
+                log.println("replace times: " + occurrences);
+            } else {
+                log.println("replace times: " + occurrences + ",  " + variableName + " => [" + value + "]");
+            }
         }
         filePath.write(content, config.getFileEncoding());
     }
