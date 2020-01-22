@@ -76,7 +76,7 @@ public class VariablesReplaceBuilder extends Builder implements SimpleBuildStep 
             int occurrences = StringUtils.countMatches(content, variableName);
             content = matcher.replaceAll(value);
             if (cfg.getHideVariableOnReplace()){
-                log.println("replace times: " + occurrences);
+                log.println("replace times: " + occurrences + ",  " + variableName + " => [******]");
             }else{
                 log.println("replace times: " + occurrences + ",  " + variableName + " => [" + value + "]");
             }
