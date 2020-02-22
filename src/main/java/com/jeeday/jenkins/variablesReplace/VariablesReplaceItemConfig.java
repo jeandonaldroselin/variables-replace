@@ -17,11 +17,13 @@ public class VariablesReplaceItemConfig extends AbstractDescribableImpl<Variable
 
     private String name;
     private String value;
+    private boolean hideVariableOnReplace = false;
 
     @DataBoundConstructor
-    public VariablesReplaceItemConfig(String name, String value) {
+    public VariablesReplaceItemConfig(String name, String value, boolean hideVariableOnReplace) {
         this.name = StringUtils.strip(name);
         this.value = StringUtils.strip(value);
+        this.hideVariableOnReplace = hideVariableOnReplace;
     }
 
     public String getName() {
@@ -31,7 +33,10 @@ public class VariablesReplaceItemConfig extends AbstractDescribableImpl<Variable
     public String getValue() {
         return value;
     }
-
+    
+    public boolean getHideVariableOnReplace() {
+        return hideVariableOnReplace;
+    }
 
     @Symbol("variablesReplaceItemConfig")
     @Extension
