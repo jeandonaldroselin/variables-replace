@@ -1,6 +1,7 @@
 package com.jeeday.jenkins.variablesReplace;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -64,24 +65,26 @@ public class VariablesReplaceBuilder extends Builder implements SimpleBuildStep 
         if (filePath == null) {
             return;
         }
-        String content = IOUtils.toString(filePath.read(), Charset.forName(config.getFileEncoding()));
-        listener.getLogger().println("replace variables in a file: " + filePath);
-        for (VariablesReplaceItemConfig cfg : config.getConfigs()) {
-            String variableName = config.getVariablesPrefix() + cfg.getName() + config.getVariablesSuffix();
-            String value = envVars.expand(cfg.getValue());
-            if (!assertEnvVarsExpanded(value, run, listener)) {
-                return;
+        try(InputStream fileIs = filePath.read()) {
+            String content = IOUtils.toString(fileIs, Charset.forName(config.getFileEncoding()));
+            listener.getLogger().println("replace variables in a file: " + filePath);
+            for (VariablesReplaceItemConfig cfg : config.getConfigs()) {
+                String variableName = config.getVariablesPrefix() + cfg.getName() + config.getVariablesSuffix();
+                String value = envVars.expand(cfg.getValue());
+                if (!assertEnvVarsExpanded(value, run, listener)) {
+                    return;
+                }
+                Matcher matcher = Pattern.compile(variableName, Pattern.LITERAL).matcher(content);
+                int occurrences = StringUtils.countMatches(content, variableName);
+                content = matcher.replaceAll(value);
+                if (cfg.getHideVariableOnReplace()) {
+                    log.println("replace times: " + occurrences + ",  " + variableName + " => [******]");
+                } else {
+                    log.println("replace times: " + occurrences + ",  " + variableName + " => [" + value + "]");
+                }
             }
-            Matcher matcher = Pattern.compile(variableName, Pattern.LITERAL).matcher(content);
-            int occurrences = StringUtils.countMatches(content, variableName);
-            content = matcher.replaceAll(value);
-            if (cfg.getHideVariableOnReplace()){
-                log.println("replace times: " + occurrences + ",  " + variableName + " => [******]");
-            }else{
-                log.println("replace times: " + occurrences + ",  " + variableName + " => [" + value + "]");
-            }
+            filePath.write(content, config.getFileEncoding());
         }
-        filePath.write(content, config.getFileEncoding());
     }
 
     private boolean assertEnvVarsExpanded(String replace, Run<?, ?> run, TaskListener listener) {
